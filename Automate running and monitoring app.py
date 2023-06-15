@@ -17,11 +17,11 @@ import smtplib
 # ssh into the server and set permission 400 to the pem file.
 EMAIL_ADDRESS = os.environ.get('EMAIL_ADDRESS')
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD')
-image_id = 'ami-031eb8d942193d84f'
+image_id = 'ami-031eb8d942193d84f'  # Replace with the desired AMI ID
 ssh_path = 'C:\Users\Yasharzada\Downloads\boto3-server-key.pem'
 key_name = 'boto3-server-key'
 ssh_user = 'ec2-user'
-instance_type = 't2-small'
+instance_type = 't2-small' # Replace with the desired type
 ec2_ip = ''
 msg = "Subject: Website is down \n Please take action"
 fail_count = 0
@@ -31,8 +31,8 @@ ec2_resource = boto3.resource('ec2')
 
 try:
     response = ec2_instance.run_instances(
-        ImageId=image_id,  # Replace with the desired AMI ID
-        InstanceType=instance_type,  # Replace with the desired type
+        ImageId=image_id,  
+        InstanceType=instance_type,  
         MinCount=1,
         MaxCount=1,
         KeyName=key_name,
