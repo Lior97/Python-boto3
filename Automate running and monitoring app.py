@@ -99,7 +99,7 @@ def open_nginx_ports():
             port_open = True
 
     if not port_open:
-        sg_response = ec2_instance.authorize_security_group_ingress(
+        ec2_instance.authorize_security_group_ingress(
             FromPort=8080,
             ToPort=8080,
             GroupName='default',
